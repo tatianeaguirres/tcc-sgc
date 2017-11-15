@@ -1,0 +1,47 @@
+<section class="Clientes">
+
+  <div class="NavLinkIcon">
+      <i class="material-icons">undo</i>
+      <%= link_to 'Voltar', clientes_path %>
+  </div>
+
+  <h1 class="SecondaryTitle">Clientes</h1>
+
+  <div class="FormShow">
+    <p>
+      <label>Nome:</label>
+      <%= @cliente.nome %>
+    </p>
+
+    <p>
+      <label>Celular:</label>
+      <%= @cliente.celular %>
+    </p>
+
+    <p>
+      <label>Telefone:</label>
+      <%= @cliente.telefone %>
+    </p>
+
+    <p>
+      <label>Email:</label>
+      <%= @cliente.email %>
+    </p>
+
+    <p>
+      <label>CPF:</label>
+      <%= @cliente.cpf %>
+    </p>
+
+    <p>
+      <label>Endereço:</label>
+      <br />
+      <%= @cliente.endereco.formatted.html_safe %>
+    </p>
+
+    <br/>
+
+    <%= link_to 'Editar', edit_cliente_path(@cliente), class: "Button ButtonPrimary u-marginMediumBottom" %>
+
+  </div>
+</section>

@@ -1,0 +1,26 @@
+<%= render template: "layouts/pdf_style", formats: :html %>
+
+<section>
+  <h1>Recibo da Venda</h1>
+
+  <p>Data: <%= @venda.data.strftime("%d/%m/%Y %H:%M") %></p>
+  <p>Cliente: <%= @venda.cliente.nome %></p>
+  <p>Preço total: <%= number_to_currency @venda.preco_total %></p>
+
+  <table class="TabelaRelatorio">
+    <tr>
+      <th>Produto</th>
+      <th>Quantidade</th>
+      <th>Preco Unitário</th>
+      <th>Preco Total</th>
+    </tr>
+    <% @venda.produto_vendas.each do |produto_venda| %>
+      <tr>
+        <td><%= produto_venda.produto.nome %></td>
+        <td><%= produto_venda.quantidade %></td>
+        <td><%= number_to_currency produto_venda.produto.preco %></td>
+        <td><%= number_to_currency produto_venda.total %></td>
+      </tr>
+    <% end %>
+  </table>
+</section>

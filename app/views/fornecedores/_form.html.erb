@@ -1,0 +1,66 @@
+<section class="Fornecedores">
+  <%= form_with(model: fornecedor, local: true, url: url) do |form| %>
+    <% if fornecedor.errors.any? %>
+      <div id="error_explanation">
+        <h2>Não foi possível salvar, verifique os erros:</h2>
+
+        <ul>
+        <% fornecedor.errors.full_messages.each do |message| %>
+          <li><%= message.gsub("Endereco ", "").capitalize %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :nome %>
+      <%= form.text_field :nome, id: :fornecedor_nome, :class => 'Input', placeholder: "Nome" %>
+    </div>
+
+    <div class="Row">
+      <div class="fieldSmall">
+        <%= form.label :tipo_pessoa %>
+        <%= form.select(:tipo_pessoa, ['Fisica', 'Juridica'], {id: :fornecedor_tipo_pessoa}, {:class => 'Input InputSmall'}) %>
+      </div>
+      <div class="fieldSmall">
+        <%= form.label :documento %>
+        <%= form.text_field :documento, id: :fornecedor_documento, :class => 'Input InputSmall', placeholder: "CPF ou CNPJ" %>
+      </div>
+    </div>
+
+    <div class="Row">
+      <div class="fieldSmall">
+        <%= form.label :telefone %>
+        <%= form.text_field :telefone, id: :fornecedor_telefone, :class => 'Input InputSmall', placeholder: "(**) 0000-0000" %>
+      </div>
+      <div class="fieldSmall">
+        <%= form.label :ramal %>
+        <%= form.text_field :ramal, id: :fornecedor_ramal, :class => 'Input InputSmall', placeholder: "Ramal" %>
+      </div>
+    </div>
+
+    <div class="Row">
+      <div class="fieldSmall">
+        <%= form.label :celular %>
+        <%= form.text_field :celular, id: :fornecedor_celular, :class => 'Input InputSmall', placeholder: "(**) 0000-0000" %>
+      </div>
+      <div class="fieldSmall">
+        <%= form.label :email, 'E-mail' %>
+        <%= form.text_field :email, id: :fornecedor_email, :class => 'Input InputSmall' %>
+      </div>
+    </div>
+
+    <div class="field">
+      <%= form.label :site %>
+      <%= form.text_field :site, id: :fornecedor_site, :class => 'Input' %>
+    </div>
+
+    <%= form.fields_for :endereco do |form_endereco| %>
+      <%= render "enderecos/shared_form", f: form_endereco %>
+    <% end %>
+
+    <div class="actions">
+      <%= form.submit 'Salvar', :class => 'Button ButtonSave u-marginLarge' %>
+    </div>
+  <% end %>
+</section>

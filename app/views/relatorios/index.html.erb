@@ -1,0 +1,38 @@
+<div class="Relatorios">
+  <div class="Row RowRelatórios">
+
+    <section class="RelatorioSection">
+      <%= form_with(url: relatorio_path("dia", format: :pdf), local: true, method: :get, html: {target: "_blank"}) do |f| %>
+        <h1 class="SecondaryTitle u-marginLarge">Relatório de Vendas por Dia</h1>
+        <div class="field FieldRelatorio">
+          <label>Selecione o dia desejado:</label>
+          <input type="date" class="Input InputRelatorio" name="date" />
+        </div>
+        <button type="submit" name="button" class="Button ButtonSave u-marginLarge">Gerar Relatório</button>
+      <% end %>
+    </section>
+
+      <section class="RelatorioSection">
+        <%= form_with(url: relatorio_path("mes", format: :pdf), local: true, method: :get, html: {target: "_blank"}) do |f| %>
+          <h1 class="SecondaryTitle u-marginLarge">Relatório de Vendas por Mês</h1>
+          <div class="field FieldRelatorio">
+            <label>Selecione o mês e ano desejado:</label>
+            <div class="Row">
+              <select name="month">
+                <% t("date.month_names").compact.each_with_index do |month_name, index| %>
+                  <option value="<%= index+1 %>" <%= index+1 == Time.now.month ? "selected" : "" %>><%= month_name %></option>
+                <% end %>
+              </select>
+              <select name="year">
+                <% (2.years.ago.year..2.years.since.year).each do |year| %>
+                  <option value="<%= year %>" <%= year == 2017 ? "selected" : "" %>><%= year %></option>
+                <% end %>
+              </select>
+            </div>
+          </div>
+          <button type="submit" name="button" class="Button ButtonSave u-marginLarge">Gerar Relatório</button>
+        <% end %>
+      </section>
+
+  </div>
+</div>

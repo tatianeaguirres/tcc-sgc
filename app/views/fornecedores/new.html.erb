@@ -1,0 +1,11 @@
+<section class="Fornecedores">
+  <div class="NavLinkIcon">
+      <i class="material-icons">undo</i>
+      <%= link_to 'Voltar', fornecedores_path %>
+  </div>
+
+  <h1 class="SecondaryTitle">Adicionar Fornecedores</h1>
+
+  <%= render 'form', fornecedor: @fornecedor, url: fornecedores_path %>
+
+</section>

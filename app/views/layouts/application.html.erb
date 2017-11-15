@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sistema de Gestão Comercial</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body>
+    <%= render 'main/header' if user_signed_in? %>
+    <%= yield %>
+  </body>
+</html>

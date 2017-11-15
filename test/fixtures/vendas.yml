@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  data: 2017-10-29 13:24:28
+  preco_total: 9.99
+  status: false
+  cliente: one
+
+two:
+  data: 2017-10-29 13:24:28
+  preco_total: 9.99
+  status: false
+  cliente: two

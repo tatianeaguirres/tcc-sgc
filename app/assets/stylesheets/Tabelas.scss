@@ -1,0 +1,51 @@
+@import "_mixins.scss";
+@import "_variables.scss";
+@import "_utilities.scss";
+@import "MediaQuery";
+
+.Table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.Table td, .Table th {
+    border: 1px solid $gray-lighten-color;
+    padding: 8px;
+}
+
+.Table tr:nth-child(even){
+    background-color: rgba(242, 242, 242, 1);
+}
+
+.Table tr:nth-child(odd){
+    background-color: $gray-lighten-color;
+}
+
+.Table tr:hover {
+    background-color: rgba(204, 204, 204, 1);
+}
+
+.Table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: $brown-color;
+    color: $white-color;
+    text-decoration: none;
+    letter-spacing: 0.05rem;
+}
+
+.TabelaRelatorio {
+  border-collapse: collapse;
+  width: 45%;
+}
+
+.TabelaRelatorio, th, td {
+  border: 1px solid #ddd;
+  text-align: left;
+  padding: 15px;
+}
+
+.TabelaRelatorio, tr:nth-child(even){
+  background-color: #f2f2f2
+}

@@ -1,0 +1,12 @@
+<section class="Vendas">
+
+  <div class="NavLinkIcon">
+      <i class="material-icons">undo</i>
+      <a href="/">Voltar</a>
+  </div>
+
+  <h2>Para emitir o recibo desta venda, clique no botão abaixo:</h2>
+
+  <%= link_to "Emitir recibo", recibo_venda_path(format: :pdf), target: :new, class: "Button ButtonSave u-marginMediumTop" %>
+
+</section>

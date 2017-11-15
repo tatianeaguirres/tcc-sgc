@@ -1,0 +1,61 @@
+@mixin flex($items: null, $direction: null, $justify: null, $wrap: null, $content: null) {
+  display: flex;
+  @if($items) {
+    align-items: $items;
+  }
+  @if($direction) {
+    flex-direction: $direction;
+  }
+  @if($justify){
+    justify-content: $justify;
+  }
+  @if($wrap){
+  flex-wrap: $wrap;
+  }
+  @if($content){
+    align-content: $content;
+  }
+}
+
+@mixin size($height: null, $width: null, $min-height: null, $max-height: null, $min-width: null, $max-width: null) {
+  @if($height) {
+    height: $height;
+  }
+  @if($width) {
+    width: $width;
+  }
+  @if($min-height) {
+    min-height: $min-height;
+  }
+  @if($max-height) {
+    max-height: $max-height;
+  }
+  @if($min-width) {
+    min-width: $min-width;
+  }
+  @if($max-width) {
+    max-width: $max-width;
+  }
+}
+
+@mixin font($size: null, $transform: null, $align: null, $spacing: null, $weight: null) {
+  @if($size) {
+    font-size: $size;
+  }
+  @if($transform) {
+    text-transform: $transform;
+  }
+  @if($align) {
+    text-align: $align;
+  }
+  @if($spacing) {
+    letter-spacing: $spacing;
+  }
+  @if($weight) {
+    font-weight: $weight;
+  }
+}
+
+@mixin boxShadow {
+  box-shadow: 0 0px 5px 0 rgba(0, 0, 0, 0.24), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

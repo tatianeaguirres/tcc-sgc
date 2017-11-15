@@ -1,0 +1,26 @@
+<%= render template: "layouts/pdf_style", formats: :html %>
+
+<section>
+  <h1>Orçamento</h1>
+
+  <p>Data do orçamento: <%= @orcamento.emissao.strftime("%d/%m/%Y") %></p>
+  <p>Cliente: <%= @orcamento.cliente.nome %></p>
+  <p>Preço total: <%= @orcamento.preco_total %></p>
+
+  <table class="TabelaRelatorio">
+    <tr>
+      <th>Produto</th>
+      <th>Quantidade</th>
+      <th>Preco Unitário</th>
+      <th>Preco Total</th>
+    </tr>
+    <% @orcamento.produto_orcamentos.each do |produto_orcamento| %>
+      <tr>
+        <td><%= produto_orcamento.produto.nome %></td>
+        <td><%= produto_orcamento.quantidade %></td>
+        <td><%= produto_orcamento.produto.preco %></td>
+        <td><%= produto_orcamento.total %></td>
+      </tr>
+    <% end %>
+  </table>
+</section>

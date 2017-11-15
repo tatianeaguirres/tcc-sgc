@@ -1,0 +1,36 @@
+<section class="Caixas">
+  <h1 class="SecondaryTitle">Caixas</h1>
+
+  <table class="Table">
+    <thead>
+      <tr>
+        <th>Data</th>
+        <th>Responsável</th>
+        <th>Status</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @caixas.each do |caixa| %>
+      <tr>
+        <td><%= caixa.data.strftime("%d/%m/%Y") %></td>
+        <td><%= caixa.responsavel %></td>
+        <td><%= caixa.status? ? 'Aberto' : 'Fechado' %></td>
+        <td><%= link_to 'Visualizar', caixa, class: "Button ButtonPrimary" %></td>
+        <td><%= link_to 'Editar', edit_caixa_path(caixa), class: "Button ButtonSecondary" %></td>
+        <td>
+          <% if caixa.status? %>
+            <%= button_to "Fechar Caixa", close_caixa_path(caixa), data: {confirm: "Tem certeza que deseja fechar esse caixa?"}, form_class: "caixa-button-to", class: "Button ButtonDelete" %>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'Adicionar caixa', new_caixa_path, class: "Button ButtonSave" %>
+
+</section>

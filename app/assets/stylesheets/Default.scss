@@ -1,0 +1,75 @@
+@import "_mixins.scss";
+@import "_variables.scss";
+@import "_utilities.scss";
+@import "MediaQuery";
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: $font-default;
+  font-size: 12px;
+  background-color: rgba(241, 241, 241, 1);
+  color: $gray-color;
+  display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+
+.Center {
+  text-align: center;
+}
+
+.SecondaryTitle {
+  color: $primary-color;
+	font-size: 2.0em;
+	letter-spacing: 0.05rem;
+  text-align: center;
+  margin: 3%;
+}
+
+.NavLinkIcon {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  height: 10vh;
+  width: 80%;
+  a {
+    color: $gray-color;
+    margin: 3px;
+    &:hover {
+      text-shadow: 2px 2px 8px $gray-lighten-color;
+    }
+  }
+}
+
+.Mensagem {
+  color: $lavender-color;
+}
+
+.Row {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.IconeBusca {
+  color: $primary-color;
+	font-size: 2.2em !important;
+  margin: 1% .5% 2% 0;
+}
+
+.ui-datepicker-calendar {
+  display: none;
+}

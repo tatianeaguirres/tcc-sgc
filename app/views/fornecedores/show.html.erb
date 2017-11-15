@@ -1,0 +1,62 @@
+<section class="Fornecedores">
+
+  <div class="NavLinkIcon">
+      <i class="material-icons">undo</i>
+      <%= link_to 'Voltar', fornecedores_path %>
+  </div>
+
+  <h1 class="SecondaryTitle">Fornecedores</h1>
+
+  <div class="FormShow">
+    <p>
+      <label>Nome:</label>
+      <%= @fornecedor.nome %>
+    </p>
+
+    <p>
+      <label>Tipo pessoa:</label>
+      <%= @fornecedor.tipo_pessoa %>
+    </p>
+
+    <p>
+      <label>Documento:</label>
+      <%= @fornecedor.documento %>
+    </p>
+
+    <p>
+      <label>Telefone:</label>
+      <%= @fornecedor.telefone %>
+    </p>
+
+    <p>
+      <label>Ramal:</label>
+      <%= @fornecedor.ramal %>
+    </p>
+
+    <p>
+      <label>Celular:</label>
+      <%= @fornecedor.celular %>
+    </p>
+
+    <p>
+      <label>E-mail:</label>
+      <%= @fornecedor.email %>
+    </p>
+
+    <p>
+      <label>Site:</label>
+      <%= @fornecedor.site %>
+    </p>
+
+    <p>
+      <label>Endereço:</label>
+      <br />
+      <%= @fornecedor.endereco.formatted.html_safe %>
+    </p>
+
+    <br>
+
+    <%= link_to 'Editar', edit_fornecedore_path(@fornecedor), class: "Button ButtonPrimary u-marginMediumBottom" %>
+
+  </div>
+</section>

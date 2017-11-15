@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  emissao: 2017-10-29 13:23:52
+  validade: 2017-10-29 13:23:52
+  cliente: one
+
+two:
+  emissao: 2017-10-29 13:23:52
+  validade: 2017-10-29 13:23:52
+  cliente: two

@@ -1,0 +1,65 @@
+<%= form_with(model: venda, local: true) do |form| %>
+  <% if venda.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(venda.errors.count, "error") %> prohibited this venda from being saved:</h2>
+
+      <ul>
+      <% venda.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :data %>
+    <%= form.datetime_select :data, id: :venda_data %>
+  </div>
+
+  <div class="field">
+    <%= form.label :preco_total %>
+    <%= form.text_field :preco_total, id: :venda_preco_total %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.check_box :status, id: :venda_status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cliente_id %>
+
+    <p>
+      <%= form.label :nome %>
+      <%= form.autocomplete_field :cliente_nome, autocomplete_cliente_nome_vendas_path %>
+    </p>
+  </div>
+
+  <%= form.fields_for :produto do |produto_form| %>
+      <%= produto_form.label :nome, "Produto" %>
+      <%= produto_form.text_field :nome %>
+      <%= produto_form.hidden_field :id %>
+      <%= label_tag "Quantidade" %>
+      <%= text_field_tag "quantidade" %>
+      <%= produto_form.label :_destroy %>
+      <%= produto_form.check_box :_destroy %>
+      <%= link_to 'Adicionar produto', new_produto_venda_path(@produto), remote: true %>
+  <% end %>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Quantidade</th>
+        <th>Preço</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+  </table>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

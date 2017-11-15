@@ -1,0 +1,11 @@
+<% if @invalid %>
+  alert("Preencha o produto e a quantidade.");
+<% elsif @action == "add-product" %>
+  $('#products-table').replaceWith('<%= j(render("produtos/table", produtos: @orcamento.produto_orcamentos)) %>');
+  $('#preco-total').html('<%= number_to_currency @orcamento.preco_total %>');
+  $('#orcamento_produto_nome_autocomplete').val("");
+  $('#orcamento_quantidade').val("");
+  $('#orcamento_produto_nome_autocomplete').focus();
+<% else %>
+  window.location.href = "/orcamentos/<%= @orcamento.id %>/recibo";
+<% end %>

@@ -1,0 +1,50 @@
+<div class="Container">
+  <h1 class="PrimaryTitle">Sistema de Gestão Comercial</h1>
+
+  <div class="Row">
+
+    <section class="FeatureSection">
+      <%= link_to 'Iniciar Venda', vendas_path, class: "FeatureButton" %>
+      <%= link_to 'Produtos', produtos_path, class: "FeatureButton" %>
+      <%= link_to 'Gerenciar Caixa', caixas_path, class: "FeatureButton" %>
+      <%= link_to 'Clientes', clientes_path, class: "FeatureButton" %>
+      <%= link_to 'Gerar Orçamento', orcamentos_path, class: "FeatureButton"  %>
+      <%= link_to 'Fornecedores', fornecedores_path, class: "FeatureButton" %>
+      <%= link_to 'Gerar Relatório', relatorios_path, class: "FeatureButton" %>
+      <a href="/ajuda" class="FeatureButton">Ajuda</a>
+    </section>
+
+    <section class="SalesSection">
+      <h2 class="SecondaryTitle">Vendas do Caixa Atual</h2>
+
+      <% if current_caixa.present? && current_caixa.vendas.any? %>
+        <div class="TableSection u-marginMediumBottom">
+        <table class="Table">
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Cliente</th>
+              <th>Preço Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% current_caixa.vendas.each do |venda_caixa| %>
+              <tr>
+                <td><%= venda_caixa.venda.data.strftime("%d/%m/%Y") %></td>
+                <td><%= venda_caixa.venda.cliente.nome %></td>
+                <td><%= number_to_currency venda_caixa.venda.preco_total %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <% else %>
+        <p>
+          Não há vendas para o caixa atual
+        </p>
+      <% end %>
+
+    </section>
+
+  </div>
+</div>

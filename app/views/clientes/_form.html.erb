@@ -1,0 +1,51 @@
+<section class="Clientes">
+  <%= form_with(model: cliente, local: true) do |form| %>
+    <% if cliente.errors.any? %>
+    <div id="error_explanation">
+      <h2>Não foi possível salvar, verifique os erros:</h2>
+
+      <ul>
+        <% cliente.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :nome %>
+      <%= form.text_field :nome, id: :cliente_nome, :class => 'Input' %>
+    </div>
+
+    <div class="Row">
+      <div class="fieldSmall">
+        <%= form.label :celular %>
+        <%= form.text_field :celular, id: :cliente_celular, :class => 'Input InputSmall', placeholder: "(**) 00000-0000" %>
+      </div>
+      <div class="fieldSmall">
+        <%= form.label :telefone %>
+        <%= form.text_field :telefone, id: :cliente_telefone, :class => 'Input InputSmall', placeholder: "(**) 0000-0000" %>
+      </div>
+    </div>
+
+    <div class="Row">
+      <div class="fieldSmall">
+        <%= form.label :email, 'E-mail' %>
+        <%= form.text_field :email, id: :cliente_email, :class => 'Input InputSmall' %>
+      </div>
+      <div class="fieldSmall">
+        <%= form.label :cpf, 'CPF' %>
+        <%= form.text_field :cpf, id: :cliente_cpf, :class => 'Input InputSmall' %>
+      </div>
+    </div>
+
+    <%= form.fields_for :endereco do |form_endereco| %>
+      <%= render "enderecos/shared_form", f: form_endereco %>
+    <% end %>
+
+    <div class="actions">
+      <%= form.submit 'Salvar', :class => 'Button ButtonSave u-marginSmallTop' %>
+    </div>
+  <% end %>
+
+</section>

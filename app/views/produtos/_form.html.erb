@@ -1,0 +1,41 @@
+<section class="Produtos">
+  <%= form_with(model: produto, local: true) do |form| %>
+    <% if produto.errors.any? %>
+    <div id="error_explanation">
+      <h2>Não foi possível salvar, verifique os erros:</h2>
+
+      <ul>
+        <% produto.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :nome %>
+      <%= form.text_field :nome, id: :produto_nome, :class => 'Input', placeholder: "Nome do produto" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :descricao, 'Descrição' %>
+      <%= form.text_field :descricao, id: :produto_descricao, :class => 'Input', placeholder: "Descrição do produto" %>
+    </div>
+
+    <div class="Row u-marginSmallBottom">
+      <div class="fieldSmall">
+        <%= form.label :preco, 'Preço' %>
+        <%= form.text_field :preco, id: :produto_preco, :class => 'Input InputSmall', placeholder: "R$ 00,00" %>
+      </div>
+      <div class="fieldSmall">
+        <label for="">Fornecedor</label>
+        <%= form.autocomplete_field :fornecedor_nome, autocomplete_fornecedor_nome_produtos_path, class: "Input InputSmall", value: @produto.fornecedor.try(:nome) %>
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= form.submit 'Salvar', :class => 'Button ButtonSave u-marginLarge' %>
+    </div>
+  <% end %>
+
+</section>

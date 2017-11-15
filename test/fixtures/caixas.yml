@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  data: 2017-10-29 13:23:25
+  responsavel: MyString
+  status: false
+
+two:
+  data: 2017-10-29 13:23:25
+  responsavel: MyString
+  status: false

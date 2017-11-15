@@ -1,0 +1,42 @@
+<section class="Fornecedores">
+  <h1 class="SecondaryTitle">Fornecedores</h1>
+
+  <%= form_with(url: fornecedores_path, local: true, method: :get) do |f| %>
+    <div class="Row">
+      <i class="IconeBusca material-icons">search</i>
+      <input name="query" type="text" placeholder="Buscar por nome do fornecedor..." class="Input InputBusca" value="<%= params[:query] %>" />
+    </div>
+  <% end %>
+
+  <table class="Table u-marginSmallBottom">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Telefone</th>
+        <th>Ramal</th>
+        <th>Celular</th>
+        <th>E-mail</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @fornecedores.each do |fornecedore| %>
+        <tr>
+          <td><%= fornecedore.nome %></td>
+          <td><%= fornecedore.telefone %></td>
+          <td><%= fornecedore.ramal %></td>
+          <td><%= fornecedore.celular %></td>
+          <td><%= fornecedore.email %></td>
+          <td><%= link_to 'Visualizar', fornecedore_path(fornecedore), class: "Button ButtonPrimary" %></td>
+          <td><%= link_to 'Editar', edit_fornecedore_path(fornecedore), class: "Button ButtonSecondary" %></td>
+          <td><%= link_to 'Excluir', fornecedore_path(fornecedore), method: :delete, data: { confirm: 'Tem certeza de que deseja excluir?' }, class: "Button ButtonDelete" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'Adicionar fornecedor', new_fornecedore_path, class: "Button ButtonSave" %>
+</section>

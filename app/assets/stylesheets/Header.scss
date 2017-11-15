@@ -1,0 +1,84 @@
+@import "_mixins.scss";
+@import "_variables.scss";
+@import "_utilities.scss";
+@import "MediaQuery";
+
+.NavHeader {
+  background: -webkit-linear-gradient(#64b5f6, #1e88e5); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#64b5f6, #1e88e5); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#64b5f6, #1e88e5); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#64b5f6, #1e88e5); /* Standard syntax (must be last) */
+  height: 7vh;
+  color: $white-color;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+  box-sizing: inherit;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.ContainerHeader {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  height: 7vh;
+  width: 75%;
+}
+
+.LogoHeader {
+  color: $primary-color;
+  width: 18%;
+  height: 100%;
+  font-size: 1.5rem;
+  letter-spacing: 0.05rem;
+  text-shadow: 2px 2px 8px #00B3DF;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  .material-icons {
+    color: $white-color;
+    margin-right: 1%;
+  }
+}
+
+
+.MenuHeader {
+  width: 76%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-items: center;
+  align-content: center;
+}
+
+.MenuHeader a {
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+  letter-spacing: 0.05rem;
+  text-shadow: 2px 2px 8px #00B3DF;
+  margin: 0 1%;
+  padding: 0 1%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  &:hover {
+    background-color: rgba(0,0,0,0.1);
+  }
+}

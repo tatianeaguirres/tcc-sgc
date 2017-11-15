@@ -1,0 +1,17 @@
+<p>
+  <strong>Emissao:</strong>
+  <%= @orcamento.emissao %>
+</p>
+
+<p>
+  <strong>Validade:</strong>
+  <%= @orcamento.validade %>
+</p>
+
+<p>
+  <strong>Cliente:</strong>
+  <%= @orcamento.cliente %>
+</p>
+
+<%= link_to 'Edit', edit_orcamento_path(@orcamento) %> |
+<%= link_to 'Back', orcamentos_path %>

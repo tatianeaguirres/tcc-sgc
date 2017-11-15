@@ -1,0 +1,32 @@
+<%= form_with(model: orcamento, local: true) do |form| %>
+  <% if orcamento.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(orcamento.errors.count, "error") %> prohibited this orcamento from being saved:</h2>
+
+      <ul>
+      <% orcamento.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :emissao %>
+    <%= form.datetime_select :emissao, id: :orcamento_emissao %>
+  </div>
+
+  <div class="field">
+    <%= form.label :validade %>
+    <%= form.datetime_select :validade, id: :orcamento_validade %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cliente_id %>
+    <%= form.text_field :cliente_id, id: :orcamento_cliente_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

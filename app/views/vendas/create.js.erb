@@ -1,0 +1,11 @@
+<% if @venda.status %>
+  window.location.href = "/vendas/<%= @venda.id %>/recibo";
+<% elsif @invalid %>
+  alert("Preencha o produto e a quantidade.");
+<% else %>
+  $('#products-table').replaceWith('<%= j(render("produtos/table", produtos: @venda.produto_vendas)) %>');
+  $('#preco-total').html('<%= number_to_currency @venda.preco_total %>');
+  $('#venda_produto_nome_autocomplete').val("");
+  $('#venda_quantidade').val("");
+  $('#venda_produto_nome_autocomplete').focus();
+<% end %>

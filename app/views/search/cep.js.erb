@@ -1,0 +1,7 @@
+<% if @finder.present? %>
+  $('.endereco').val('<%= @finder[:address] %>');
+  $('.cidade').val('<%= @finder[:city] %>');
+  $('.estado').val('<%= @finder[:state] %>');
+<% else %>
+  alert('CEP não encontrado.')
+<% end %>

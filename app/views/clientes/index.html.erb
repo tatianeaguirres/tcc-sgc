@@ -1,0 +1,41 @@
+<section class="Clientes">
+  <h1 class="SecondaryTitle">Clientes</h1>
+
+  <%= form_with(url: clientes_path, local: true, method: :get) do |f| %>
+    <div class="Row">
+      <i class="IconeBusca material-icons">search</i>
+      <input type="text" placeholder="Buscar por nome do cliente..." class="Input InputBusca" name="query" value="<%= params[:query] %>" />
+    </div>
+  <% end %>
+
+  <table class="Table u-marginSmallBottom">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Celular</th>
+        <th>Telefone</th>
+        <th>E-mail</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @clientes.each do |cliente| %>
+      <tr>
+        <td><%= cliente.nome %></td>
+        <td><%= cliente.celular %></td>
+        <td><%= cliente.telefone %></td>
+        <td><%= cliente.email %></td>
+        <td><%= link_to 'Visualizar', cliente, class: "Button ButtonPrimary" %></td>
+        <td><%= link_to 'Editar', edit_cliente_path(cliente), class: "Button ButtonSecondary" %></td>
+        <td><%= link_to 'Excluir', cliente, method: :delete, data: { confirm: 'Tem certeza de que deseja excluir?' }, class: "Button ButtonDelete" %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'Adicionar cliente', new_cliente_path, class: "Button ButtonSave" %>
+
+</section>

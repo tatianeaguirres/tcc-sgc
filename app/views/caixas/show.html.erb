@@ -1,0 +1,30 @@
+<section class="Caixas">
+
+  <div class="NavLinkIcon">
+      <i class="material-icons">undo</i>
+      <%= link_to 'Voltar', caixas_path %>
+  </div>
+
+  <h1 class="SecondaryTitle">Caixa</h1>
+
+  <div class="FormShow">
+    <p>
+      <label>Data da abertura do caixa:</label>
+      <%= @caixa.data.strftime("%d/%m/%Y") %>
+    </p>
+
+    <p>
+      <label>Responsável pelo caixa:</label>
+      <%= @caixa.responsavel %>
+    </p>
+
+    <p>
+      <label>Caixa aberto?</label>
+      <%= @caixa.status? ? 'Aberto' : 'Fechado' %>
+    </p>
+    <br>
+
+    <%= link_to 'Editar', edit_caixa_path(@caixa), class: "Button ButtonPrimary u-marginMediumBottom" %>
+
+  </div>
+</section>

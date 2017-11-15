@@ -1,0 +1,53 @@
+@import "_mixins.scss";
+@import "_variables.scss";
+@import "_utilities.scss";
+@import "MediaQuery";
+
+.Container {
+  @include flex($items: center, $direction: column, $justify: flex-start, $wrap: wrap, $content: center);
+  @include size($height: 100%, $width: 80%);
+
+	.PrimaryTitle {
+		@include font($size: 2.8rem, $spacing: 0.05rem);
+		color: $primary-color;
+	}
+
+	.Row {
+		@include flex($items: center, $direction: row, $justify: center, $wrap: wrap, $content: center);
+		@include size($height: 100%, $width: 100%);
+
+		.FeatureSection {
+			@include flex($items: center, $direction: row, $justify: center, $wrap: wrap, $content: center);
+			@include size($height: 100%, $width: 50%);
+
+			.FeatureButton {
+				@include flex($items: center, $direction: row, $justify: center, $wrap: wrap, $content: center);
+				@include size($height: 13vh, $width: 30%);
+				@include font($size: 1.5em, $transform: uppercase, $align: center, $spacing: 0.05rem);
+				color: $white-color;
+				background-color: $brown-color;
+				text-decoration: none;
+				text-shadow: 2px 2px 8px #a1887f;
+				box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+				border: none;
+			  border-radius: 2px;
+				margin: 2%;
+				padding: 0 2rem;
+			}
+		}
+
+		.SalesSection {
+			@include flex($items: center, $direction: column, $justify: flex-start, $wrap: nowrap, $content: center);
+			@include size($height: 61vh, $width: 50%);
+			background-color: #d7ccc8;
+
+			.TableSection {
+				width: 90%;
+				overflow-y: scroll;
+			}
+
+		}
+
+	}
+
+}

@@ -1,0 +1,35 @@
+<section class="Clientes">
+  <h1 class="SecondaryTitle">Usuários</h1>
+
+  <%= form_with(url: users_path, local: true, method: :get) do |f| %>
+    <div class="Row">
+      <i class="IconeBusca material-icons">search</i>
+      <input type="text" placeholder="Buscar por email do usuário..." class="Input InputBusca" name="query" value="<%= params[:query] %>" />
+    </div>
+  <% end %>
+
+  <table class="Table u-marginSmallBottom">
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= link_to 'Visualizar', user, class: "Button ButtonPrimary" %></td>
+        <td><%= link_to 'Editar', edit_user_path(user), class: "Button ButtonSecondary" %></td>
+        <td><%= link_to 'Excluir', user, method: :delete, data: { confirm: 'Tem certeza de que deseja excluir?' }, class: "Button ButtonDelete" %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'Adicionar usuário', new_user_path, class: "Button ButtonSave" %>
+
+</section>

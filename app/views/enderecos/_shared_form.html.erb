@@ -1,0 +1,36 @@
+<div class="Row">
+  <div class="fieldSmall">
+    <%= f.label :cep, "CEP" %>
+    <%= f.text_field :cep, id: "cep-value", class: 'Input InputSmall', autocomplete: false %>
+  </div>
+  <div class="fieldSmall">
+    <button type="button" class="Button ButtonSecondary u-marginMediumTop search-cep">Buscar CEP</button>
+  </div>
+</div>
+
+<div class="field">
+  <%= f.label :endereco, 'Endereço' %>
+  <%= f.text_field :endereco, :class => 'Input endereco', readonly: true  %>
+</div>
+
+<div class="Row">
+  <div class="fieldSmall">
+    <%= f.label :numero, 'Número' %>
+    <%= f.text_field :numero, class: 'Input InputSmall', type: :number  %>
+  </div>
+  <div class="fieldSmall">
+    <%= f.label :complemento %>
+    <%= f.text_field :complemento, class: 'Input InputSmall'  %>
+  </div>
+</div>
+
+<div class="Row u-marginSmallBottom">
+  <div class="fieldSmall">
+    <%= f.label :cidade %>
+    <%= f.text_field :cidade, class: 'Input InputSmall cidade', readonly: true  %>
+  </div>
+  <div class="fieldSmall">
+    <%= f.label :estado %>
+    <%= f.select :estado, select_states, {include_blank: true}, {class: "Input estado", readonly: true} %>
+  </div>
+</div>

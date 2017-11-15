@@ -1,0 +1,38 @@
+<section class="Caixas">
+  <%= form_with(model: caixa, local: true) do |form| %>
+  <% if caixa.errors.any? %>
+  <div id="error_explanation">
+    <h2>Não foi possível salvar, verifique os erros:</h2>
+
+    <ul>
+      <% caixa.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :data, 'Data da abertura do caixa' %>
+    <br>
+    <span class="DateTime">
+      <%= form.date_select :data, id: :caixa_data, :class => 'Input', order: [:day, :month, :year], disabled: true %>
+    </span>
+  </div>
+  <br>
+  <div class="field">
+    <%= form.label :responsavel, 'Responsável pelo caixa' %>
+    <%= form.text_field :responsavel, id: :caixa_responsavel, :class => 'Input', placeholder: "Nome" %>
+  </div>
+  <br>
+  <div class="field">
+    <%= form.label :status, 'Caixa aberto?' %>
+    <%= form.check_box :status, id: :caixa_status, :class => 'u-marginMediumBottom' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Salvar', :class => 'Button ButtonPrimary' %>
+  </div>
+  <% end %>
+
+</section>

@@ -1,0 +1,13 @@
+@import "_mixins.scss";
+@import "_variables.scss";
+@import "_utilities.scss";
+@import "MediaQuery";
+
+.Caixas {
+	@include flex($items: center, $direction: column, $justify: flex-start, $wrap: nowrap, $content: center);
+  @include size($height: 100%, $width: 80%);
+  font-size: 1.2em;
+	form.caixa-button-to {
+		margin: 0;
+	}
+}

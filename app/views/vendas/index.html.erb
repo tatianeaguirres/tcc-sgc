@@ -1,0 +1,44 @@
+<section class="Vendas">
+
+  <div class="NavLinkIcon">
+      <i class="material-icons">undo</i>
+      <a href="/">Voltar</a>
+  </div>
+
+  <h1 class="SecondaryTitle">Nova Venda</h1>
+
+  <%= form_with(model: @venda) do |f| %>
+    <div class="Row u-marginSmallBottom">
+      <div class="fieldVenda">
+        <label for="cliente">Cliente:</label>
+        <%= f.autocomplete_field :cliente_nome, autocomplete_cliente_nome_vendas_path, class: "InputVenda #{@venda.cliente.present? ? 'InputDisabled' : ''}", value: @venda.cliente.try(:nome), id_element: '#cliente_id', id: "venda_cliente_nome_autocomplete" %>
+        <%= f.hidden_field :cliente_id, id: "cliente_id" %>
+        <button type="button" class="ButtonIcon" id="venda_cliente_edit"><i class="material-icons">mode_edit</i></button>
+      </div>
+      <div class="fieldVenda">
+        <label for="produto">Produto</label>
+        <%= f.autocomplete_field :produto_nome, autocomplete_produto_nome_vendas_path, class: "InputVenda", id_element: '#produto_id', id: "venda_produto_nome_autocomplete" %>
+        <%= f.hidden_field :produto_id, id: "produto_id" %>
+      </div>
+      <div class="fieldVenda">
+        <label for="quantidade">Quantidade</label>
+        <input type="number" name="quantidade" value="" class="InputVenda" id="venda_quantidade" />
+      </div>
+    </div>
+
+    <div class="IncluirVenda">
+      <button type="submit" name="button" class="Button ButtonSave u-marginSmallBottom" value="add-product">Adicionar Produto</button>
+    </div>
+
+    <br />
+    <%= render "produtos/table", produtos: @venda.produto_vendas %>
+
+    <div class="TotalVenda">
+      <button type="submit" name="button" class="Button ButtonSave" value="finish">Encerrar Venda</button>
+      <h2>
+        <label>Preço Total: <span id="preco-total"><%= @venda.new_record? ? "R$ 0,00" : number_to_currency(@venda.preco_total) %></span></label>
+      </h2>
+    </div>
+  <% end %>
+
+</section>

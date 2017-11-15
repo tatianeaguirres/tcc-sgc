@@ -1,0 +1,27 @@
+<nav class="NavHeader">
+  <div class="ContainerHeader">
+    <div class="LogoHeader">
+      <i class="material-icons">shopping_cart</i>
+      <h1>SGC</h1>
+    </div>
+    <div class="MenuHeader">
+      <a href="/">Início</a>
+      <%= link_to 'Vendas', vendas_path %>
+      <%= link_to 'Produtos', produtos_path %>
+      <%= link_to 'Caixa', caixas_path %>
+      <%= link_to 'Clientes', clientes_path %>
+      <%= link_to 'Fornecedores', fornecedores_path %>
+      <%= link_to 'Usuários', users_path %>
+      <a href="/ajuda">Ajuda</a>
+      <%= link_to "Sair", destroy_user_session_path, method: :delete %>
+    </div>
+  </div>
+</nav>
+
+<% if notice.present? %>
+  <p id="notice" class="flash-notice notice Mensagem"><%= notice %></p>
+<% end %>
+
+<% if alert.present? %>
+  <p id="alert" class="flash-notice alert Mensagem"><%= alert %></p>
+<% end %>

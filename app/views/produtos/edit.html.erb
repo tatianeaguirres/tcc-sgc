@@ -1,0 +1,11 @@
+<section class="Produtos">
+  <div class="NavLinkIcon">
+      <i class="material-icons">undo</i>
+      <%= link_to 'Voltar', @produto %>
+  </div>
+
+  <h1 class="SecondaryTitle">Editar Produto</h1>
+
+  <%= render 'form', produto: @produto %>
+
+</section>

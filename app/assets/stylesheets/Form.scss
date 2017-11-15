@@ -1,0 +1,147 @@
+@import "_mixins.scss";
+@import "_variables.scss";
+@import "_utilities.scss";
+@import "MediaQuery";
+
+form {
+    width: 100%;
+    margin-bottom: 10%;
+    .field {
+        width: 100%;
+    }
+}
+
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.Input {
+    display: block;
+    width: 90%;
+    height: 26px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: $gray-color;
+    background-color: $white-color;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    margin-bottom: 15px;
+    font-family: $font-default;
+}
+
+.InputSmall {
+  width: 80%;
+}
+
+.InputVenda {
+    display: inline-block;
+    width: 50%;
+    height: 26px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: $gray-color;
+    background-color: $white-color;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    margin-bottom: 15px;
+}
+
+.InputBusca {
+  width: 30%;
+}
+
+.InputRelatorio {
+  min-width: 55%;
+  max-width: 68%
+}
+
+.InputDisabled {
+    background-color: #eee;
+    cursor: not-allowed;
+}
+
+.field select {
+    height: 40px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: $gray-color;
+    background-color: $white-color;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    margin-right: 1%;
+}
+
+.fieldSmall select {
+    height: 40px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: $gray-color;
+    background-color: $white-color;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    margin-right: 1%;
+    width: 85%;
+}
+
+.fieldVenda select {
+    height: 40px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: $gray-color;
+    background-color: $white-color;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.fieldSmall {
+  width: 50%;
+}
+
+.fieldCep {
+  width: 70%;
+  display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: center;
+}
+
+.FormShow {
+    width: 60%;
+    font-size: 1.2em;;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: center;
+    label {
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-right: 5px;
+    }
+}
+
+.DateTime select {
+    background-color: $white-color;
+    height: 3.8vh;
+    font-size: 1em;
+    font-family: $font-default;
+    color: $gray-color;
+}

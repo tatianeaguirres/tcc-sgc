@@ -1,0 +1,33 @@
+<section class="Produtos">
+  <div class="NavLinkIcon">
+      <i class="material-icons">undo</i>
+      <%= link_to 'Voltar', produtos_path %>
+  </div>
+
+  <h1 class="SecondaryTitle">Produtos</h1>
+
+  <div class="FormShow">
+    <p>
+      <label>Nome:</label>
+      <%= @produto.nome %>
+    </p>
+
+    <p>
+      <label>Descrição:</label>
+      <%= @produto.descricao %>
+    </p>
+
+    <p>
+      <label>Preço:</label>
+      <%= number_to_currency @produto.preco %>
+    </p>
+
+    <p>
+      <label>Fornecedor:</label>
+      <%= link_to @produto.fornecedor.try(:nome), fornecedore_path(@produto.fornecedor) %>
+    </p>
+
+    <%= link_to 'Editar', edit_produto_path(@produto), class: "Button ButtonPrimary u-marginMediumBottom" %>
+
+  </div>
+</section>

@@ -1,0 +1,48 @@
+<section class="Orcamentos">
+
+  <div class="NavLinkIcon">
+      <i class="material-icons">undo</i>
+      <a href="/">Voltar</a>
+  </div>
+
+  <h1 class="SecondaryTitle">Novo Orçamento</h1>
+
+  <%= form_with(model: @orcamento) do |f| %>
+    <div class="Row u-marginSmallBottom">
+
+      <div class="fieldVenda">
+        <label for="cliente">Cliente:</label>
+        <%= f.autocomplete_field :cliente_nome, autocomplete_cliente_nome_orcamentos_path, class: "InputVenda #{@orcamento.cliente.present? ? 'InputDisabled' : ''}", value: @orcamento.cliente.try(:nome), id_element: '#cliente_id', id: "orcamento_cliente_nome_autocomplete" %>
+        <%= f.hidden_field :cliente_id, id: "cliente_id" %>
+        <button type="button" class="ButtonIcon" id="orcamento_cliente_edit"><i class="material-icons">mode_edit</i></button>
+      </div>
+
+      <div class="fieldVenda">
+        <label for="produto">Produto</label>
+        <%= f.autocomplete_field :produto_nome, autocomplete_produto_nome_orcamentos_path, class: "InputVenda", id_element: '#produto_id', id: "orcamento_produto_nome_autocomplete" %>
+        <%= f.hidden_field :produto_id, id: "produto_id" %>
+      </div>
+
+      <div class="fieldVenda">
+        <label for="quantidade">Quantidade</label>
+        <input type="number" name="quantidade" value="" class="InputVenda" id="orcamento_quantidade" />
+      </div>
+      
+    </div>
+
+    <div class="IncluirVenda">
+      <button type="submit" name="button" class="Button ButtonSave u-marginSmallBottom" value="add-product">Adicionar Produto</button>
+    </div>
+
+    <br />
+    <%= render "produtos/table", produtos: @orcamento.produto_orcamentos %>
+
+    <div class="TotalVenda">
+      <button type="submit" name="button" class="Button ButtonSave">Finalizar Orçamento</button>
+      <h2>
+        <label>Preço Total: <span id="preco-total">R$ 0,00</span></label>
+      </h2>
+    </div>
+  <% end %>
+
+</section>
