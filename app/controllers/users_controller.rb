@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  
+
   def index
     @users = User.all
     @users = User.where("email LIKE ?", "%#{params[:query]}%") if params[:query].present?
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'Usuário foi criado com sucesso.' }
+        format.html { redirect_to users_path, notice: 'Usuário foi criado com sucesso.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }

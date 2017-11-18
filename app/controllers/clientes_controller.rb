@@ -2,7 +2,7 @@ class ClientesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_cliente, only: [:show, :edit, :update, :destroy]
   autocomplete :endereco, :endereco
-  
+
   # GET /clientes
   # GET /clientes.json
   def index
@@ -32,7 +32,7 @@ class ClientesController < ApplicationController
 
     respond_to do |format|
       if @cliente.save
-        format.html { redirect_to @cliente, notice: 'Cliente foi criado com sucesso.' }
+        format.html { redirect_to clientes_path, notice: 'Cliente foi criado com sucesso.' }
         format.json { render :show, status: :created, location: @cliente }
       else
         format.html { render :new }
@@ -58,11 +58,19 @@ class ClientesController < ApplicationController
   # DELETE /clientes/1
   # DELETE /clientes/1.json
   def destroy
-    @cliente.destroy
-    respond_to do |format|
-      format.html { redirect_to clientes_url, notice: 'Cliente foi deletado com sucesso.' }
-      format.json { head :no_content }
+    begin
+      @cliente.destroy
+      respond_to do |format|
+        format.html { redirect_to clientes_url, notice: 'Cliente foi deletado com sucesso.' }
+        format.json { head :no_content }
+      end
+    rescue 
+      respond_to do |format|
+        format.html { redirect_to clientes_url, notice: 'Este cliente não pode ser excluido, pois ele já possui vendas.' }
+        format.json { head :no_content }
+      end
     end
+
   end
 
   private

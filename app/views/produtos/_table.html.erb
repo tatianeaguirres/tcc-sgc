@@ -2,7 +2,10 @@
   <thead>
     <tr>
       <th>Produto</th>
-      <th>Quantidade</th>
+      <th>
+        <span class="Mobile">Quantidade</span>
+        <span class="DesktopTablet">Quant.</span>
+      </th>
       <th>Preco Unitário</th>
       <th>Preco Total</th>
       <th colspan="3"></th>
@@ -15,7 +18,12 @@
         <td><%= produto.quantidade %></td>
         <td><%= number_to_currency produto.produto.preco %></td>
         <td><%= number_to_currency produto.total %></td>
-        <td><a href="" class="Button ButtonDelete delete-product" data-produto-venda-id="<%= produto.id %>">Excluir</a></td>
+        <td>
+          <a href="" class="Button ButtonDelete delete-product" data-produto-venda-id="<%= produto.id %>">
+            <i class="material-icons">delete</i>
+            <span class="Mobile">Excluir</span>
+          </a>
+        </td>
       </tr>
     <% end %>
   </tbody>

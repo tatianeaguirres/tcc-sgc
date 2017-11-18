@@ -32,7 +32,7 @@ class ProdutosController < ApplicationController
 
     respond_to do |format|
       if @produto.save
-        format.html { redirect_to @produto, notice: 'Produto foi criado(a) com sucesso.' }
+        format.html { redirect_to produtos_path, notice: 'Produto foi criado(a) com sucesso.' }
         format.json { render :show, status: :created, location: @produto }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class ProdutosController < ApplicationController
   # PATCH/PUT /produtos/1.json
   def update
     load_fornecedor
-    
+
     respond_to do |format|
       if @produto.update(produto_params)
         format.html { redirect_to @produto, notice: 'Produto foi atualizado(a) com sucesso.' }
@@ -84,7 +84,7 @@ class ProdutosController < ApplicationController
     def produto_params
       params.require(:produto).permit(:nome, :descricao, :preco, :fornecedor_nome)
     end
-    
+
     def load_fornecedor
       if @produto.present? && produto_params[:fornecedor_nome].present?
         @produto.fornecedor_id = Fornecedor.find_by(nome: produto_params[:fornecedor_nome]).id

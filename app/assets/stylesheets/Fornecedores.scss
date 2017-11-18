@@ -4,13 +4,28 @@
 @import "MediaQuery";
 
 .Fornecedores {
-  width: 80%;
-	height: 100%;
+  @include flex($items: center, $direction: column, $justify: flex-start, $wrap: nowrap, $content: center);
+  @include size($height: 100%, $width: 80%);
   font-size: 1.2em;
-	display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	justify-content: flex-start;
-	align-items: center;
-	align-content: center;
+  @include tablet {
+    font-size: 1.6rem;
+  }
+  @include mobile {
+    font-size: 2.2rem;
+  }
+  @include smallMobile {
+    font-size: 2.2rem;
+  }
+
+  .Mobile {
+    @include tablet {
+      display: none;
+    }
+    @include mobile {
+      display: none;
+    }
+    @include smallMobile {
+      display: none;
+    }
+  }
 }

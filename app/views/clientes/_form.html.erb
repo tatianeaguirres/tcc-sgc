@@ -6,7 +6,7 @@
 
       <ul>
         <% cliente.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <li><%= message.gsub("Endereco ", "").capitalize %></li>
         <% end %>
       </ul>
     </div>

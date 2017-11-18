@@ -7,7 +7,29 @@
 	@include flex($items: center, $direction: column, $justify: flex-start, $wrap: nowrap, $content: center);
   @include size($height: 100%, $width: 80%);
   font-size: 1.2em;
+	@include tablet {
+		font-size: 1.6rem;
+	}
+	@include mobile {
+		font-size: 2.2rem;
+	}
+	@include smallMobile {
+		font-size: 2.2rem;
+	}
+
 	form.caixa-button-to {
 		margin: 0;
+	}
+
+	.Mobile {
+		@include tablet {
+			display: none;
+		}
+		@include mobile {
+			display: none;
+		}
+		@include smallMobile {
+			display: none;
+		}
 	}
 }

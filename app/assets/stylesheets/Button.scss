@@ -18,6 +18,28 @@
   line-height: 1.42857143;
   border-radius: 4px;
   padding: 6px 12px;
+  @include tablet {
+    font-size: 1.6rem;
+  }
+  @include mobile {
+    font-size: 2.2rem;
+  }
+  @include smallMobile {
+    font-size: 2.2rem;
+  }
+
+  i {
+    vertical-align: -6px;
+    @include tablet {
+      font-size: 2rem !important;
+    }
+    @include mobile {
+      font-size: 3rem !important;
+    }
+    @include smallMobile {
+      font-size: 3rem !important;
+    }
+  }
 }
 
 .ButtonSave {

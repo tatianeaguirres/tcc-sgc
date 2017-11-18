@@ -27,14 +27,14 @@ class CaixasController < ApplicationController
   def create
     @caixa = Caixa.new(caixa_params)
     @caixa.data = Time.now
-    
+
     if caixa_params[:status] && (current_caixa.try(:status) && current_caixa.try(:id) != @caixa.id)
       redirect_to caixas_path, alert: "Não foi possível atualizar, já há um caixa em aberto." and return
     end
 
     respond_to do |format|
       if @caixa.save
-        format.html { redirect_to @caixa, notice: 'Caixa foi criado(a) com sucesso.' }
+        format.html { redirect_to caixas_path, notice: 'Caixa foi criado(a) com sucesso.' }
         format.json { render :show, status: :created, location: @caixa }
       else
         format.html { render :new }
@@ -49,7 +49,7 @@ class CaixasController < ApplicationController
     if caixa_params[:status] && (current_caixa.try(:status) && current_caixa.try(:id) != @caixa.id)
       redirect_to caixas_path, alert: "Não foi possível atualizar, já há um caixa em aberto." and return
     end
-    
+
     respond_to do |format|
       if @caixa.update(caixa_params)
         format.html { redirect_to @caixa, notice: 'Caixa foi atualizado(a) com sucesso.' }
@@ -70,7 +70,7 @@ class CaixasController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
+
   def close
     if @caixa.update(status: false)
       redirect_to caixas_url, notice: "Caixa fechado com sucesso."

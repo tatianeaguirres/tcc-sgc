@@ -4,37 +4,91 @@
 @import "MediaQuery";
 
 .Vendas {
-  width: 80%;
-	height: 100%;
+  @include flex($items: center, $direction: column, $justify: flex-start, $wrap: nowrap, $content: center);
+  @include size($height: 100%, $width: 80%);
   font-size: 1.2em;
-	display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	justify-content: flex-start;
-	align-items: center;
-	align-content: center;
+  @include tablet {
+    font-size: 1.4rem;
+  }
+  @include mobile {
+    font-size: 2rem;
+  }
+  @include smallMobile {
+    font-size: 2rem;
+  }
 }
 
 .fieldVenda {
   width: 30%;
+  @include tablet {
+    width: 90%;
+    margin: 1%;
+  }
+  @include mobile {
+    width: 90%;
+    margin: 1%;
+  }
+  @include smallMobile {
+    width: 90%;
+    margin: 1%;
+  }
+  .DesktopTablet {
+    display: inline-block;
+    @include tablet {
+      display: inline-block;
+    }
+    @include mobile {
+      display: none;
+    }
+    @include smallMobile {
+      display: none;
+    }
+  }
+  .Mobile {
+    display: none;
+    @include tablet {
+      display: none;
+    }
+    @include mobile {
+      display: inline-block;
+    }
+    @include smallMobile {
+      display: inline-block;
+    }
+  }
 }
 
 .IncluirVenda {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: center;
-	align-items: center;
-	align-content: center;
+	@include flex($items: center, $direction: row, $justify: center, $wrap: nowrap, $content: center);
 }
 
 .TotalVenda {
+	@include flex($items: center, $direction: row, $justify: space-around, $wrap: nowrap, $content: center);
   width: 90%;
 	padding: 2%;
-  display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: space-around;
-	align-items: center;
-	align-content: center;
+  @include tablet {
+    width: 100%;
+    margin: 1%;
+  }
+  @include mobile {
+    width: 100%;
+    margin: 1%;
+    flex-direction: column;
+  }
+  @include smallMobile {
+    width: 100%;
+    margin: 1%;
+    flex-direction: column;
+  }
+  h2 {
+    @include tablet {
+      font-size: 1.8rem;
+    }
+    @include mobile {
+      font-size: 2.4rem;
+    }
+    @include smallMobile {
+      font-size: 2.4rem;
+    }
+  }
 }

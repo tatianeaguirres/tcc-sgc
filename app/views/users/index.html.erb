@@ -1,10 +1,19 @@
-<section class="Clientes">
+<section class="Usuarios">
+
+  <div class="NavLinkIcon">
+      <i class="material-icons">undo</i>
+      <a href="/">Voltar</a>
+  </div>
+
   <h1 class="SecondaryTitle">Usuários</h1>
 
   <%= form_with(url: users_path, local: true, method: :get) do |f| %>
     <div class="Row">
       <i class="IconeBusca material-icons">search</i>
       <input type="text" placeholder="Buscar por email do usuário..." class="Input InputBusca" name="query" value="<%= params[:query] %>" />
+    </div>
+    <div class="Row">
+      <small>Pressione ENTER para efetuar a pesquisa</small>
     </div>
   <% end %>
 
@@ -20,9 +29,24 @@
       <% @users.each do |user| %>
       <tr>
         <td><%= user.email %></td>
-        <td><%= link_to 'Visualizar', user, class: "Button ButtonPrimary" %></td>
-        <td><%= link_to 'Editar', edit_user_path(user), class: "Button ButtonSecondary" %></td>
-        <td><%= link_to 'Excluir', user, method: :delete, data: { confirm: 'Tem certeza de que deseja excluir?' }, class: "Button ButtonDelete" %></td>
+        <td>
+          <%= link_to user, class: "Button ButtonPrimary" do %>
+            <i class="material-icons">remove_red_eye</i>
+            <span class="Mobile">Visualizar</span>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to edit_user_path(user), class: "Button ButtonSecondary" do %>
+            <i class="material-icons">edit</i>
+            <span class="Mobile">Editar</span>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to user, method: :delete, data: { confirm: 'Tem certeza de que deseja excluir?' }, class: "Button ButtonDelete" do %>
+            <i class="material-icons">delete</i>
+            <span class="Mobile">Excluir</span>
+          <% end %>
+        </td>
       </tr>
       <% end %>
     </tbody>

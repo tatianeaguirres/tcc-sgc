@@ -15,7 +15,7 @@
     </section>
 
     <section class="SalesSection">
-      <h2 class="SecondaryTitle">Vendas do Caixa Atual</h2>
+      <h2 class="SecondaryTitle MobileTitle">Vendas do Caixa Atual</h2>
 
       <% if current_caixa.present? && current_caixa.vendas.any? %>
         <div class="TableSection u-marginMediumBottom">
@@ -28,7 +28,7 @@
             </tr>
           </thead>
           <tbody>
-            <% current_caixa.vendas.each do |venda_caixa| %>
+            <% current_caixa.vendas.reverse_each do |venda_caixa| %>
               <tr>
                 <td><%= venda_caixa.venda.data.strftime("%d/%m/%Y") %></td>
                 <td><%= venda_caixa.venda.cliente.nome %></td>

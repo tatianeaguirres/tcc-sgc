@@ -1,4 +1,10 @@
 <section class="Produtos">
+
+  <div class="NavLinkIcon">
+      <i class="material-icons">undo</i>
+      <a href="/">Voltar</a>
+  </div>
+
   <h1 class="SecondaryTitle">Produtos</h1>
 
   <%= form_with(url: produtos_path, local: true, method: :get) do |f| %>
@@ -6,15 +12,18 @@
       <i class="IconeBusca material-icons">search</i>
       <input type="text" placeholder="Buscar por nome do produto..." name="query" class="Input InputBusca" value="<%= params[:query] %>" />
     </div>
+    <div class="Row">
+      <small>Pressione ENTER para efetuar a pesquisa</small>
+    </div>
   <% end %>
 
   <table class="Table u-marginSmallBottom">
     <thead>
       <tr>
         <th>Nome</th>
-        <th>Descrição</th>
+        <th class="Mobile">Descrição</th>
         <th>Preço</th>
-        <th>Fornecedor</th>
+        <th class="Mobile">Fornecedor</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -23,12 +32,27 @@
       <% @produtos.each do |produto| %>
       <tr>
         <td><%= produto.nome %></td>
-        <td><%= produto.descricao %></td>
+        <td class="Mobile"><%= produto.descricao %></td>
         <td><%= number_to_currency produto.preco %></td>
-        <td><%= produto.fornecedor.try(:nome) %></td>
-        <td><%= link_to 'Visualizar', produto, class: "Button ButtonPrimary" %></td>
-        <td><%= link_to 'Editar', edit_produto_path(produto), class: "Button ButtonSecondary" %></td>
-        <td><%= link_to 'Excluir', produto, method: :delete, data: { confirm: 'Tem certeza de que deseja excluir?' }, class: "Button ButtonDelete" %></td>
+        <td class="Mobile"><%= produto.fornecedor.try(:nome) %></td>
+        <td>
+          <%= link_to produto, class: "Button ButtonPrimary" do %>
+            <i class="material-icons">remove_red_eye</i>
+            <span class="Mobile">Visualizar</span>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to edit_produto_path(produto), class: "Button ButtonSecondary" do %>
+            <i class="material-icons">edit</i>
+            <span class="Mobile">Editar</span>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to produto, method: :delete, data: { confirm: 'Tem certeza de que deseja excluir?' }, class: "Button ButtonDelete" do %>
+            <i class="material-icons">delete</i>
+            <span class="Mobile">Excluir</span>
+          <% end %>
+        </td>
       </tr>
       <% end %>
     </tbody>

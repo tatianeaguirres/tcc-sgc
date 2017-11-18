@@ -6,11 +6,22 @@
 .Table {
     border-collapse: collapse;
     width: 100%;
+    border-spacing: 0;
 }
 
 .Table td, .Table th {
+    font-size: 1rem;
     border: 1px solid $gray-lighten-color;
     padding: 8px;
+    @include tablet {
+      font-size: 1.4rem;
+    }
+    @include mobile {
+      font-size: 2rem;
+    }
+    @include smallMobile {
+      font-size: 2rem;
+    }
 }
 
 .Table tr:nth-child(even){
@@ -26,13 +37,12 @@
 }
 
 .Table th {
+    @include font($align: left, $spacing: 0.05rem);
     padding-top: 12px;
     padding-bottom: 12px;
-    text-align: left;
     background-color: $brown-color;
     color: $white-color;
     text-decoration: none;
-    letter-spacing: 0.05rem;
 }
 
 .TabelaRelatorio {
@@ -48,4 +58,29 @@
 
 .TabelaRelatorio, tr:nth-child(even){
   background-color: #f2f2f2
+}
+
+.Mobile {
+  @include tablet {
+    display: none;
+  }
+  @include mobile {
+    display: none;
+  }
+  @include smallMobile {
+    display: none;
+  }
+}
+
+.DesktopTablet {
+  display: none;
+  @include tablet {
+    display: contents;
+  }
+  @include mobile {
+    display: contents;
+  }
+  @include smallMobile {
+    display: contents;
+  }
 }

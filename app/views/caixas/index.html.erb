@@ -1,11 +1,17 @@
 <section class="Caixas">
+
+  <div class="NavLinkIcon">
+      <i class="material-icons">undo</i>
+      <a href="/">Voltar</a>
+  </div>
+  
   <h1 class="SecondaryTitle">Caixas</h1>
 
   <table class="Table">
     <thead>
       <tr>
         <th>Data</th>
-        <th>Responsável</th>
+        <th class="Mobile">Responsável</th>
         <th>Status</th>
         <th colspan="3"></th>
       </tr>
@@ -15,13 +21,26 @@
       <% @caixas.each do |caixa| %>
       <tr>
         <td><%= caixa.data.strftime("%d/%m/%Y") %></td>
-        <td><%= caixa.responsavel %></td>
+        <td class="Mobile"><%= caixa.responsavel %></td>
         <td><%= caixa.status? ? 'Aberto' : 'Fechado' %></td>
-        <td><%= link_to 'Visualizar', caixa, class: "Button ButtonPrimary" %></td>
-        <td><%= link_to 'Editar', edit_caixa_path(caixa), class: "Button ButtonSecondary" %></td>
+        <td>
+          <%= link_to caixa, class: "Button ButtonPrimary" do %>
+            <i class="material-icons">remove_red_eye</i>
+            <span class="Mobile">Visualizar</span>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to edit_caixa_path(caixa), class: "Button ButtonSecondary" do %>
+            <i class="material-icons">edit</i>
+            <span class="Mobile">Editar</span>
+          <% end %>
+        </td>
         <td>
           <% if caixa.status? %>
-            <%= button_to "Fechar Caixa", close_caixa_path(caixa), data: {confirm: "Tem certeza que deseja fechar esse caixa?"}, form_class: "caixa-button-to", class: "Button ButtonDelete" %>
+            <%= button_to close_caixa_path(caixa), data: {confirm: "Tem certeza que deseja fechar esse caixa?"}, form_class: "caixa-button-to", class: "Button ButtonDelete" do %>
+              <i class="material-icons">delete</i>
+              <span class="Mobile">Fechar Caixa</span>
+            <% end %>
           <% end %>
         </td>
       </tr>

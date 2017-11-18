@@ -5,9 +5,18 @@
 
 form {
     width: 100%;
-    margin-bottom: 10%;
+    margin-bottom: 2%;
     .field {
         width: 100%;
+    }
+    @include tablet {
+      margin-bottom: 4%;
+    }
+    @include mobile {
+      margin-bottom: 6%;
+    }
+    @include smallMobile {
+      margin-bottom: 6%;
     }
 }
 
@@ -16,12 +25,20 @@ label {
     max-width: 100%;
     margin-bottom: 5px;
     font-weight: 700;
+    @include tablet {
+      min-width: 30%;
+    }
+    @include mobile {
+      min-width: 30%;
+    }
+    @include smallMobile {
+      min-width: 30%;
+    }
 }
 
 .Input {
+    @include size($height: 26px, $width: 90%);
     display: block;
-    width: 90%;
-    height: 26px;
     padding: 6px 12px;
     font-size: 14px;
     line-height: 1.42857143;
@@ -33,16 +50,37 @@ label {
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
     margin-bottom: 15px;
     font-family: $font-default;
+    @include tablet {
+      font-size: 18px;
+    }
+    @include mobile {
+      font-size: 30px;
+      height: 38px;
+    }
+    @include smallMobile {
+      font-size: 30px;
+      height: 38px;
+    }
 }
 
 .InputSmall {
   width: 80%;
+  @include tablet {
+    width: 90%;
+  }
+  @include mobile {
+    width: 90%;
+    height: 38px;
+  }
+  @include smallMobile {
+    width: 90%;
+    height: 38px;
+  }
 }
 
 .InputVenda {
+    @include size($height: 26px, $width: 50%);
     display: inline-block;
-    width: 50%;
-    height: 26px;
     padding: 6px 12px;
     font-size: 14px;
     line-height: 1.42857143;
@@ -57,11 +95,34 @@ label {
 
 .InputBusca {
   width: 30%;
+  @include tablet {
+    width: 60%;
+    font-size: 1.6rem;
+    height: 40px;
+  }
+  @include mobile {
+    width: 60%;
+    font-size: 1.8rem;
+    height: 40px;
+  }
+  @include smallMobile {
+    width: 60%;
+    font-size: 1.8rem;
+    height: 40px;
+  }
 }
 
 .InputRelatorio {
-  min-width: 55%;
-  max-width: 68%
+  @include size($min-width: 55%, $max-width: 68%);
+  @include tablet {
+    max-width: 55%;
+  }
+  @include mobile {
+    @include size($min-width: 45%, $max-width: 45%);
+  }
+  @include smallMobile {
+    @include size($min-width: 45%, $max-width: 45%);
+  }
 }
 
 .InputDisabled {
@@ -80,6 +141,17 @@ label {
     border-radius: 4px;
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
     margin-right: 1%;
+    @include tablet {
+      font-size: 18px;
+    }
+    @include mobile {
+      font-size: 30px;
+      height: 48px;
+    }
+    @include smallMobile {
+      font-size: 30px;
+      height: 48px;
+    }
 }
 
 .fieldSmall select {
@@ -94,6 +166,15 @@ label {
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
     margin-right: 1%;
     width: 85%;
+    @include tablet {
+      font-size: 18px;
+    }
+    @include mobile {
+      font-size: 22px;
+    }
+    @include smallMobile {
+      font-size: 22px;
+    }
 }
 
 .fieldVenda select {
@@ -106,31 +187,53 @@ label {
     border: 1px solid #ccc;
     border-radius: 4px;
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    @include tablet {
+      font-size: 18px;
+    }
+    @include mobile {
+      font-size: 16px;
+    }
+    @include smallMobile {
+      font-size: 16px;
+    }
 }
 
 .fieldSmall {
-  width: 50%;
+    width: 50%;
+    @include tablet {
+      width: 100%;
+    }
+    @include mobile {
+      width: 100%;
+    }
+    @include smallMobile {
+      width: 100%;
+    }
 }
 
 .fieldCep {
-  width: 70%;
-  display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: flex-start;
-	align-items: center;
-	align-content: center;
+    @include flex($items: center, $direction: row, $justify: flex-start, $wrap: nowrap, $content: center);
+    width: 70%;
 }
 
 .FormShow {
+    @include flex($items: flex-start, $direction: column, $justify: flex-start, $wrap: nowrap, $content: center);
     width: 60%;
-    font-size: 1.2em;;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-items: flex-start;
-    align-content: center;
+    font-size: 1.2em;
+    @include tablet {
+      width: 90%;
+    }
+    @include mobile {
+      width: 90%;
+    }
+    @include smallMobile {
+      width: 90%;
+    }
+
+    p a {
+      color: $gray-color;
+    }
+
     label {
         font-weight: bold;
         text-transform: uppercase;
@@ -144,4 +247,30 @@ label {
     font-size: 1em;
     font-family: $font-default;
     color: $gray-color;
+}
+
+input[type=checkbox] {
+  margin-left: 1%;
+  padding: 10px;
+  @include tablet {
+    margin-left: 2%;
+    -ms-transform: scale(2); /* IE */
+    -moz-transform: scale(2); /* FF */
+    -webkit-transform: scale(2); /* Safari and Chrome */
+    -o-transform: scale(2); /* Opera */
+  }
+  @include mobile {
+    margin-left: 4%;
+    -ms-transform: scale(2); /* IE */
+    -moz-transform: scale(2); /* FF */
+    -webkit-transform: scale(2); /* Safari and Chrome */
+    -o-transform: scale(2); /* Opera */
+  }
+  @include smallMobile {
+    margin-left: 4%;
+    -ms-transform: scale(2); /* IE */
+    -moz-transform: scale(2); /* FF */
+    -webkit-transform: scale(2); /* Safari and Chrome */
+    -o-transform: scale(2); /* Opera */
+  }
 }

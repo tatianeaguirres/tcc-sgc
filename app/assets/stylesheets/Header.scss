@@ -4,81 +4,119 @@
 @import "MediaQuery";
 
 .NavHeader {
-  background: -webkit-linear-gradient(#64b5f6, #1e88e5); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(#64b5f6, #1e88e5); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(#64b5f6, #1e88e5); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(#64b5f6, #1e88e5); /* Standard syntax (must be last) */
-  height: 7vh;
+  @include size($height: 7vh, $width: 100%);
+  @include flex($items: center, $direction: row, $justify: center, $wrap: nowrap, $content: center);
+  background-color: #8a7b76;
   color: $white-color;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
   box-sizing: inherit;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
 }
 
 .ContainerHeader {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  align-items: center;
-  align-content: center;
-  height: 7vh;
-  width: 75%;
+  @include tablet {
+    @include size($height: 7vh, $width: 90%);
+  }
+  @include mobile {
+    @include size($height: 7vh, $width: 90%);
+  }
+  @include smallMobile {
+    @include size($height: 7vh, $width: 90%);
+  }
+  @include size($height: 7vh, $width: 75%);
+  @include flex($items: center, $direction: row, $justify: space-between, $wrap: nowrap, $content: center);
 }
 
 .LogoHeader {
-  color: $primary-color;
-  width: 18%;
-  height: 100%;
-  font-size: 1.5rem;
-  letter-spacing: 0.05rem;
-  text-shadow: 2px 2px 8px #00B3DF;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-items: center;
-  align-content: center;
+  @include size($height: 100%, $width: 18%);
+  @include flex($items: center, $direction: row, $justify: flex-start, $wrap: nowrap, $content: center);
+  @include tablet {
+    @include size($height: 100%, $width: 15%);
+  }
+  a {
+    text-decoration: none;
+    color: $primary-color;
+    font-size: 2.5rem;
+    letter-spacing: 0.05rem;
+    text-shadow: 2px 2px 8px #6d4c41;
+    @include tablet {
+      font-size: 3.5rem;
+    }
+    @include mobile {
+      font-size: 3.5rem;
+    }
+    @include smallMobile {
+      font-size: 3.5rem;
+    }
+  }
   .material-icons {
     color: $white-color;
-    margin-right: 1%;
+    margin-right: 4%;
+    @include tablet {
+      font-size: 2.4rem;
+    }
+    @include mobile {
+      font-size: 2.4rem;
+    }
+    @include smallMobile {
+      font-size: 2.4rem;
+    }
   }
 }
 
-
-.MenuHeader {
-  width: 76%;
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-end;
-  align-items: center;
-  align-content: center;
+.MenuHeaderDesktop {
+  @include size($height: 100%, $width: 76%);
+  @include flex($items: center, $direction: row, $justify: flex-end, $wrap: nowrap, $content: center);
+  @include tablet {
+    display: none;
+  }
+  @include mobile {
+    display: none;
+  }
+  @include smallMobile {
+    display: none;
+  }
 }
 
-.MenuHeader a {
-  text-decoration: none;
-  color: white;
-  font-size: 1rem;
-  letter-spacing: 0.05rem;
-  text-shadow: 2px 2px 8px #00B3DF;
-  margin: 0 1%;
-  padding: 0 1%;
+.MenuHeaderDesktop a {
+  @include flex($items: center, $direction: row, $justify: center, $wrap: nowrap, $content: center);
+  @include font($size: 1rem, $spacing: 0.05rem);
   height: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
+  text-decoration: none;
+  color: $white-color;
+  text-shadow: 2px 2px 8px #6d4c41;
+  margin: 0 1%;
   &:hover {
     background-color: rgba(0,0,0,0.1);
   }
+}
+
+.MenuHeaderMobile {
+  @include size($height: 100%, $width: 50%);
+  @include flex($items: center, $direction: row, $justify: flex-end, $wrap: nowrap, $content: center);
+  display: none;
+  @include tablet {
+    display: flex;
+  }
+  @include mobile {
+    display: flex;
+  }
+  @include smallMobile {
+    display: flex;
+  }
+
+  a {
+    @include flex($items: center, $direction: row, $justify: center, $wrap: nowrap, $content: center);
+    height: 100%;
+    text-decoration: none;
+    color: $white-color;
+    text-shadow: 2px 2px 8px #6d4c41;
+    margin: 0 6%;
+    &:hover {
+      background-color: rgba(0,0,0,0.1);
+    }
+    i {
+      font-size: 3rem;
+    }
+  }
+
 }

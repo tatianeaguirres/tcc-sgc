@@ -1,8 +1,8 @@
 class FornecedoresController < ApplicationController
-    
+
   before_action :authenticate_user!
   before_action :set_fornecedor, only: [:show, :edit, :update, :destroy]
-  
+
   # GET /fornecedors
   # GET /fornecedors.json
   def index
@@ -32,7 +32,7 @@ class FornecedoresController < ApplicationController
 
     respond_to do |format|
       if @fornecedor.save
-        format.html { redirect_to fornecedore_path(@fornecedor), notice: 'Fornecedor foi atualizado com sucesso.' }
+        format.html { redirect_to fornecedores_path, notice: 'Fornecedor foi salvo com sucesso.' }
         format.json { render :show, status: :created, location: @fornecedor }
       else
         format.html { render :new }
@@ -58,9 +58,14 @@ class FornecedoresController < ApplicationController
   # DELETE /fornecedors/1
   # DELETE /fornecedors/1.json
   def destroy
-    @fornecedor.destroy
-    respond_to do |format|
-      format.html { redirect_to fornecedores_path, notice: 'Fornecedor foi excluído com sucesso.' }
+    begin
+      @fornecedor.destroy
+      respond_to do |format|
+        format.html { redirect_to fornecedores_path, notice: 'Fornecedor foi excluído com sucesso.' }
+        format.json { head :no_content }
+      end
+    rescue
+      format.html { redirect_to fornecedores_path, notice: 'Este fornecedor não pode ser excluido, pois ele já possui vendas.' }
       format.json { head :no_content }
     end
   end

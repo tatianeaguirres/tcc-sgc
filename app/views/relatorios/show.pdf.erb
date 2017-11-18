@@ -15,7 +15,7 @@
         <td><%= venda.data.strftime("%d/%m/%Y") %></td>
         <td><%= venda.cliente.nome %></td>
         <td><%= venda.status? ? "Encerrada" : "Aberta" %></td>
-        <td><%= venda.preco_total %></td>
+        <td><%= number_to_currency venda.preco_total %></td>
       </tr>
     <% end %>
   </table>

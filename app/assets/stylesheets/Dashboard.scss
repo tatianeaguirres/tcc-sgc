@@ -10,6 +10,12 @@
 	.PrimaryTitle {
 		@include font($size: 2.8rem, $spacing: 0.05rem);
 		color: $primary-color;
+		@include mobile {
+			font-size: 3rem;
+		}
+		@include smallMobile {
+			font-size: 3rem;
+		}
 	}
 
 	.Row {
@@ -17,10 +23,27 @@
 		@include size($height: 100%, $width: 100%);
 
 		.FeatureSection {
+      @include tablet {
+        @include size($height: 100%, $width: 100%);
+      }
+      @include mobile {
+        @include size($height: 100%, $width: 100%);
+      }
+      @include smallMobile {
+        @include size($height: 100%, $width: 100%);
+      }
 			@include flex($items: center, $direction: row, $justify: center, $wrap: wrap, $content: center);
 			@include size($height: 100%, $width: 50%);
 
 			.FeatureButton {
+				@include mobile {
+	        @include size($height: 10vh, $width: 60%);
+					@include font($size: 3em);
+	      }
+				@include smallMobile {
+	        @include size($height: 10vh, $width: 60%);
+					@include font($size: 3.3em);
+	      }
 				@include flex($items: center, $direction: row, $justify: center, $wrap: wrap, $content: center);
 				@include size($height: 13vh, $width: 30%);
 				@include font($size: 1.5em, $transform: uppercase, $align: center, $spacing: 0.05rem);
@@ -37,13 +60,36 @@
 		}
 
 		.SalesSection {
+			@include tablet {
+        @include size($height: 100%, $width: 80%);
+				margin-top: 5%;
+      }
+			@include mobile {
+        @include size($height: 100%, $width: 100%);
+				margin-top: 5%;
+      }
+			@include smallMobile {
+        @include size($height: 100%, $width: 100%);
+				margin-top: 5%;
+				background-color: transparent;
+      }
 			@include flex($items: center, $direction: column, $justify: flex-start, $wrap: nowrap, $content: center);
 			@include size($height: 61vh, $width: 50%);
 			background-color: #d7ccc8;
 
+			.MobileTitle {
+				@include mobile {
+					font-size: 3rem;
+				}
+				@include smallMobile {
+					font-size: 3rem;
+				}
+			}
+
 			.TableSection {
 				width: 90%;
 				overflow-y: scroll;
+				overflow-x: auto;
 			}
 
 		}
