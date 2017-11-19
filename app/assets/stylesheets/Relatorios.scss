@@ -63,7 +63,7 @@
 
 	.FieldRelatorio {
 		@include flex($items: center, $direction: column, $justify: center, $wrap: nowrap, $content: center);
-		width: 55%;
+		width: 100%;
 		@include tablet {
 	    width: 100%;
 	  }
