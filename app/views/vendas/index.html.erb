@@ -7,6 +7,7 @@
 
   <h1 class="SecondaryTitle">Nova Venda</h1>
 
+<% if @caixa.present? && @venda.present? %>
   <%= form_with(model: @venda) do |f| %>
     <div class="Row u-marginSmallBottom">
       <div class="fieldVenda">
@@ -41,5 +42,6 @@
       </h2>
     </div>
   <% end %>
+<% end %>
 
 </section>

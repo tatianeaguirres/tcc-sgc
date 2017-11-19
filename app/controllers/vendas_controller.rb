@@ -7,10 +7,16 @@ class VendasController < ApplicationController
   # GET /vendas
   # GET /vendas.json
   def index
-    if session[:venda_id].present?
-      @venda = Venda.find(session[:venda_id])
+    @caixa = Caixa.current
+    
+    if @caixa.present?
+      if session[:venda_id].present?
+        @venda = Venda.find(session[:venda_id])
+      else
+        @venda = Venda.new
+      end
     else
-      @venda = Venda.new
+      flash.now[:alert] = "Não há caixa aberto."
     end
   end
 
@@ -63,6 +69,7 @@ class VendasController < ApplicationController
   def delete_produto_venda
     @venda = Venda.find(session[:venda_id])
     @venda.produto_vendas.find(params[:produto_venda_id]).destroy
+    @venda.calculate_total
     
     render "create"
   end
@@ -102,7 +109,7 @@ class VendasController < ApplicationController
         render "create"
       else
         respond_to do |format|
-          if @venda.update(status: true, data: Time.now)
+          if @venda.produto_vendas.any? && @venda.update(status: true, data: Time.now)
             VendaCaixa.create venda: @venda, caixa: current_caixa
             
             format.html { redirect_to @venda, notice: 'Venda foi atualizada com sucesso.' }

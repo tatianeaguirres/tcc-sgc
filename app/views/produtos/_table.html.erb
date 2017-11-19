@@ -19,7 +19,7 @@
         <td><%= number_to_currency produto.produto.preco %></td>
         <td><%= number_to_currency produto.total %></td>
         <td>
-          <a href="" class="Button ButtonDelete delete-product" data-produto-venda-id="<%= produto.id %>">
+          <a href="" class="Button ButtonDelete delete-product<%= produto.is_a?(ProdutoOrcamento) ? '-orcamento' : '' %>" data-produto-venda-id="<%= produto.id %>">
             <i class="material-icons">delete</i>
             <span class="Mobile">Excluir</span>
           </a>

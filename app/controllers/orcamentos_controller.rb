@@ -62,7 +62,8 @@ class OrcamentosController < ApplicationController
   
   def delete_produto_orcamento
     @orcamento = Orcamento.find(session[:orcamento_id])
-    @orcamento.produto_orcamentos.find(params[:produto_orcamento_id]).destroy
+    @orcamento.produto_orcamentos.find(params[:produto_venda_id]).destroy
+    @orcamento.calculate_total
     
     render "create"
   end
@@ -104,7 +105,7 @@ class OrcamentosController < ApplicationController
         render "create"
       else
         respond_to do |format|
-          if @orcamento.update(emissao: Time.now)
+          if @orcamento.produto_orcamentos.any? && @orcamento.update(emissao: Time.now)
             format.html { redirect_to @orcamento, notice: 'Orçamento foi atualizada com sucesso.' }
             format.json { render :show, status: :created, location: @orcamento }
             format.js { 

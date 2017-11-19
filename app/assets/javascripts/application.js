@@ -40,6 +40,16 @@ $(function() {
     return false;
   });
   
+  $('body').on("click", '.delete-product-orcamento', function(event) {
+    event.preventDefault();
+    
+    if (confirm('Tem certeza que deseja excluir?')) {
+      $.post('/orcamentos/delete_produto_orcamento', {produto_venda_id: $(this).data('produto-venda-id')});
+    }
+    
+    return false;
+  });
+  
   $('#venda_cliente_nome_autocomplete').bind('railsAutocomplete.select', function(event, data) {
     $(this).addClass("InputDisabled");
     $('#venda_produto_nome_autocomplete').focus();

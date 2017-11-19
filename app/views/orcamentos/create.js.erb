@@ -1,6 +1,8 @@
 <% if @invalid %>
   alert("Preencha o produto e a quantidade.");
-<% elsif @action == "add-product" %>
+<% elsif !@orcamento.produto_orcamentos.any? && params[:produto_venda_id].blank? %>
+  alert("Não há produtos adicionados para o orçamento.");
+<% elsif @action == "add-product" || params[:produto_venda_id].present? %>
   $('#products-table').replaceWith('<%= j(render("produtos/table", produtos: @orcamento.produto_orcamentos)) %>');
   $('#preco-total').html('<%= number_to_currency @orcamento.preco_total %>');
   $('#orcamento_produto_nome_autocomplete').val("");

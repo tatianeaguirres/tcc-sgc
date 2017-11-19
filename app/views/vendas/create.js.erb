@@ -1,5 +1,7 @@
 <% if @venda.status %>
   window.location.href = "/vendas/<%= @venda.id %>/recibo";
+<% elsif !@venda.produto_vendas.any? && params[:produto_venda_id].blank? %>
+  alert("Não há produtos adicionados para a venda.");
 <% elsif @invalid %>
   alert("Preencha o produto e a quantidade.");
 <% else %>
